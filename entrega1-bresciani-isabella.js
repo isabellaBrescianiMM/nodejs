@@ -14,28 +14,48 @@ class ProductManager {
           return null;
     }
 
-    addProduct(title, code, description, price, thumbnail, stock){
-        for (const prod of this.products) {
-            if (prod.code === code) {
-              console.log(`El producto con codigo ${code} ya existe en la lista`)
-              return
-            }
-          }
-        
-
-        let prod = {
-                id: ProductManager.productcode++,
-                code: code,
-                title: title,
-                description: description,
-                price: price,
-                thumbnail:  thumbnail,
-                stock: stock
+    addProduct(title, code, description, price, thumbnail, stock) {
+      // Verificar si alguno de los parámetros es nulo o indefinido
+      if (
+        title === undefined ||
+        code === undefined ||
+        description === undefined ||
+        price === undefined ||
+        thumbnail === undefined ||
+        stock === undefined
+      ) {
+        console.log("Todos los parámetros deben estar definidos.");
+        return;
+      }
+  
+      // Verificar si alguno de los parámetros es una cadena vacía
+      if (
+        title.trim() === "" ||
+        code.trim() === "" ||
+        description.trim() === "" ||
+        thumbnail.trim() === ""
+      ) {
+        console.log("Ningún campo puede estar vacío.");
+        return;
+      }
+  
+      for (const prod of this.products) {
+        if (prod.code === code) {
+          console.log(`El producto con código ${code} ya existe en la lista`);
+          return;
         }
-        this.products.push(prod)
-
-       
-        
+      }
+  
+      let prod = {
+        id: ProductManager.productcode++,
+        code: code,
+        title: title,
+        description: description,
+        price: price,
+        thumbnail: thumbnail,
+        stock: stock,
+      };
+      this.products.push(prod);
     }
 
     getProducts(){
@@ -56,3 +76,7 @@ prodManager.addProduct("pantalon2","ab1", "ancho", 2000, "img2", 2)
 console.log(prodManager.getProducts())
 
 console.log(prodManager.getProductById(1))
+
+
+
+
