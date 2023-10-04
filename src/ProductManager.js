@@ -30,12 +30,11 @@ class ProductManager {
     async addProduct(obj) {
         const list = await this.read();
 
-        // Validar que se reciban todos los parámetros esperados
+        
         if (!obj.title || !obj.description || !obj.price || !obj.thumbnail || !obj.code || obj.stock === undefined) {
             throw new Error('Faltan parámetros en el objeto del producto');
         }
 
-        // Validar que el código no se repita
         if (list.some(product => product.code === obj.code)) {
             throw new Error('El código del producto ya existe');
         }
@@ -52,25 +51,24 @@ class ProductManager {
         const index = list.findIndex(product => product.id === id);
 
         if (index !== -1) {
-            // Validar que solo se actualicen las propiedades del producto
+            
             const allowedProps = ['title', 'description', 'price', 'thumbnail', 'code', 'stock'];
             const updatedProps = Object.keys(updatedProduct);
 
-            // Verificar si hay propiedades no permitidas en updatedProduct
+  
             const invalidProps = updatedProps.filter(prop => !allowedProps.includes(prop));
 
             if (invalidProps.length > 0) {
                 throw new Error('Propiedades no válidas en el objeto de producto');
             }
 
-            // Verificar si el código del producto ya existe
+     
             const existingProductWithCode = list.find(product => product.code === updatedProduct.code && product.id !== id);
 
             if (existingProductWithCode) {
                 throw new Error('El código del producto ya existe');
             }
 
-            // Actualizar solo las propiedades permitidas
             list[index] = { ...list[index], ...updatedProduct };
 
             await this.write(list);
@@ -90,7 +88,7 @@ class ProductManager {
         }
     }
 
-    async getProductById(id) {
+    async getElementById(id) {
         const list = await this.read();
         const product = list.find(product => product.id === id);
         if (product) {
@@ -100,3 +98,6 @@ class ProductManager {
         }
     }
 }
+
+
+module.exports = ProductManager;
