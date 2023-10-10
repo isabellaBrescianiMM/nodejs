@@ -88,9 +88,10 @@ class ProductManager {
         }
     }
 
-    async getElementById(id) {
+    async getProductById(id) {
         const list = await this.read();
-        const product = list.find(product => product.id === id);
+        const product = list.find(product => product.id == id);
+   
         if (product) {
             return product;
         } else {

@@ -1,8 +1,11 @@
 const express = require('express');
 const ProductManager = require('./ProductManager.js'); 
-
+const path = require('path')
+const currentDir = __dirname
+const fileName = 'productos.json'
+const url = path.join(currentDir, fileName)
 const app = express();
-const productManager = new ProductManager('./productos.js'); 
+const productManager = new ProductManager(url); 
 
 app.get('/products', async (req, res) => {
     try {
@@ -24,7 +27,6 @@ app.get('/products/:pid', async (req, res) => {
     try {
         const productId = parseInt(req.params.pid);
         const product = await productManager.getProductById(productId);
-
         res.json(product);
     } catch (error) {
         res.status(404).json({ error: 'Producto no encontrado' });
