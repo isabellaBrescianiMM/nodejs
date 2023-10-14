@@ -1,0 +1,47 @@
+[
+  {
+    "title": "MANTECA CORPORAL DE MANGO 200 ML",
+    "description": "Manteca Corporal",
+    "price": 8.99,
+    "thumbnail": "labial-rojo.jpg",
+    "code": "BNT-40809",
+    "stock": 10,
+    "id": 1
+  },
+  {
+    "title": "CEPILLO DESENREDANTE THE ULTIMATE WET DETANGLER MILLENIAL PINK",
+    "description": "Cepillo para Cabello",
+    "price": 15.99,
+    "thumbnail": "labial-rojo.jpg",
+    "code": "HC-37623",
+    "stock": 20,
+    "id": 2
+  },
+  {
+    "title": "POLVO BRONCEANTE MURUMURU BUTTER BRONZER",
+    "description": "Bronzer",
+    "price": 16.99,
+    "thumbnail": "labial-rojo.jpg",
+    "code": "PF-06676-1",
+    "stock": 20,
+    "id": 3
+  },
+  {
+    "title": "POLVO BRONCEANTE MURUMURU BUTTER BRONZER",
+    "description": "Bronzer",
+    "price": 16.99,
+    "thumbnail": "labial-rojo.jpg",
+    "code": "PF-06676-2",
+    "stock": 20,
+    "id": 4
+  },
+  {
+    "title": "GLITTER PALLETTE POP THAT GLITZ",
+    "description": "Paleta de Sombras de Ojos",
+    "price": 24.69,
+    "thumbnail": "labial-rojo.jpg",
+    "code": "KY-02553",
+    "stock": 22,
+    "id": 5
+  }
+]
